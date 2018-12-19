@@ -10,6 +10,10 @@ int a2 = 2;
 int a2Val = 0;
 float a2MapVal;
 
+int a3 = 3;
+int a3Val = 0;
+float a3MapVal;
+
 
 void setup() {
   Serial.begin(9600);
@@ -19,12 +23,14 @@ void loop() {
   a0Val = analogRead(a0); //可変抵抗器の値を読む
   a1Val = analogRead(a1);
   a2Val = analogRead(a2);
+  a3Val = analogRead(a3);
   //  Serial.println(a2Val);
 
   //可変抵抗器の0-1023の値を0-255に変換
   a0MapVal = map(a0Val, 0, 1023, 0, 255);
   a1MapVal = map(a1Val, 0, 1023, 0, 255);
   a2MapVal = map(a2Val, 0, 1023, 0, 255);
+  a3MapVal = map(a3Val, 0, 1023, 0, 255);
 
   //シリアル送信 Processingに送る
   Serial.print(a0MapVal);
@@ -32,6 +38,8 @@ void loop() {
   Serial.print(a1MapVal);
   Serial.print(",");
   Serial.print(a2MapVal);
+  Serial.print(",");
+  Serial.print(a3MapVal);
   Serial.print("\n");
 
   delay(100);
